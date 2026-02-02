@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4f46e5">
+  <title>Iron Lady Admin Dashboard</title>
+  <link rel="icon" href="logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="logo.png" alt="Iron Lady logo" class="logo">
+      <h1>Iron Lady — Admin Dashboard</h1>
+    </div>
+    <div class="top-actions">
+      <button id="clearFilters" class="btn ghost" title="Clear all filters (Ctrl/⌘+K)">Clear Filters</button>
+      <button id="themeToggle" title="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Programs</h2>
+      <form id="programForm" class="form-inline" aria-label="Add program">
+        <div class="input-group">
+          <input id="programName" placeholder="Program Name" required>
+          <button type="button" class="input-clear" data-target="programName" aria-label="Clear program name">✕</button>
+        </div>
+        <div class="input-group">
+          <input id="programDuration" placeholder="Duration (e.g., 8 weeks)" required>
+          <button type="button" class="input-clear" data-target="programDuration" aria-label="Clear duration">✕</button>
+        </div>
+        <button type="submit" class="btn primary">Add Program</button>
+      </form>
+
+      <div class="input-group">
+        <input id="programSearch" placeholder="Search programs..." class="search" aria-label="Search programs">
+        <button type="button" class="input-clear" data-target="programSearch" aria-label="Clear search">✕</button>
+      </div>
+      <ul id="programList" class="list" aria-live="polite"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Leads</h2>
+      <form id="leadForm" class="form-inline" aria-label="Add lead">
+        <div class="input-group">
+          <input id="leadName" placeholder="Name" required>
+          <button type="button" class="input-clear" data-target="leadName" aria-label="Clear name">✕</button>
+        </div>
+        <div class="input-group">
+          <input id="leadEmail" placeholder="Email" type="email" required>
+          <button type="button" class="input-clear" data-target="leadEmail" aria-label="Clear email">✕</button>
+        </div>
+        <div class="input-group">
+          <select id="leadStatus" aria-label="Lead status">
+            <option>New</option>
+            <option>Contacted</option>
+            <option>Enrolled</option>
+          </select>
+        </div>
+        <button type="submit" class="btn primary">Add Lead</button>
+      </form>
+
+      <div class="input-group">
+        <input id="leadSearch" placeholder="Search leads..." class="search" aria-label="Search leads">
+        <button type="button" class="input-clear" data-target="leadSearch" aria-label="Clear search">✕</button>
+      </div>
+      <ul id="leadList" class="list" aria-live="polite"></ul>
+    </section>
+  </main>
+
+  <!-- Modal for editing -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content">
+      <h3 id="modalTitle">Edit</h3>
+      <form id="modalForm"></form>
+      <div class="modal-actions">
+        <button id="modalCancel" class="btn">Cancel</button>
+        <button id="modalSave" class="btn primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">⚡ Improving internal workflows for Iron Lady</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
